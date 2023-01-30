@@ -4,7 +4,7 @@
 
 Team: 7even's Interactive Front-End Project
 
-Greetings! the Interactive Front-End Project showecases group memebers: Rebecca Lawerence, Shohei Mochizuki & Thomas Calle's collaborative skills and talents to potnetial their user based auidance and employers. Employers want to see what you can do, so that's exactly what we'll give'um! The more examples of deployed collaborative work we have in your portfolio, the more likely you are to get an interview and a job.
+Greetings! the Interactive Front-End Project showecases group memebers: Rebecca Lawerence, Shohei Mochizuki & Thomas Calle's collaborative skills and talents to potnetial their user based auidance and employers. Employers want to see what you can do, so that's exactly what we'll give'um!
 
 ## Table of contents
 
