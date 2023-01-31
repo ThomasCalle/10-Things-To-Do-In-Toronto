@@ -56,8 +56,8 @@ Initialized and configured a GitHub Repository with GitHub Project intergration 
 
 ### What we learned
 
-//ENTRY IN PROGRESS...
-
+##### Challenges Encountered:
+- GitHub: members Shohei and Mochizuki could not push to origin main - causation: deletion of file name "Assets" created ob GitHub by Thomas on local file
 
 ### Continued development
 
