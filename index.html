@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Things to do in Toronto!</title>
+
+    <!-- jQuery UI <link> tag -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="./assets/css/style.cs">
+
+    <!-- Tailwind CSS <link> tag-->
+    <link href=“https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css”  rel=“stylesheet” />
+
+</head>
+
+<body>
+
+    <header>
+        <h1 class="">10 Things to do in Toronto!</h1>
+    </header>
+
+    <main>
+        <!-- Section for List of Events, details being pulled from SeatGeek API -->
+        <section id="event-list">
+            <h4>List of Events</h4>
+            <div class="event-buttons">
+            </div>
+        </section>
+
+        <!-- Section for Search History of Past Events  -->
+        <section id="search-history">
+            <h4>Search History</h4>
+            <div>
+                <div class="search-buttons">
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Section that contains both the event details & map -->
+        <section id="selected-event">
+            <!-- Div of the details of the event> -->
+            <div id="event-info">
+                <h4>Details of the Event</h4>
+                <div id="event-details">
+                    <!-- Unordered list containing the pertinant event details for the user-->
+                    <ul>
+                        <li id="event-category"></li>
+                        <li id="event-title"><a href="/"></a></li>
+                        <li id="event-date-time"></li>
+                        <li id="performer"></li>
+                        <li id="venue-name"></li>
+                        <li id="venue-address"></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--Div of the event-map, info being pulled from OpenStreetMap API-->
+            <div id="event-map">
+                <h4>Event Map</h4>
+                <iframe id="embeddedMap" width="425" height="350" frameborder="0" scrolling="no" marginheight="0"
+                    marginwidth="0" style="border: 1px solid black"></iframe>
+            </div>
+
+        </section>
+
+
+    </main>
+
+    <footer>
+        <h6> Created by Thomas Calle, Shohei Mochizuki, Rebecca Lawrence </h6>
+    </footer>
+
+    <!--Jquery <script> tag -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+
+    <!--Tailwind <script> tag-->
+    <script src=“https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js”></script>
+
+</body>
+</body>
+
+
+</html>
