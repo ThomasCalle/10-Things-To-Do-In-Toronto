@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +8,10 @@
 
     <!-- jQuery UI <link> tag -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="./assets/css/style.cs">
-
     <!-- Tailwind CSS <link> tag-->
     <link href=“https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css” rel=“stylesheet” />
-
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
@@ -21,45 +19,49 @@
     <header>
         <h1 id="pageTitle">10 Things To Do In Toronto</h1>
     </header>
+        <nav class="menu">
+            <ul>
+                <li><a href="event-list">List of Events</a></li>
+                <li><a href="search-history">Search History</a></li>
+                <li><a href="event-info">Details of the Event</a></li>
+            </ul>
+        </nav>    
+    <main class="container">
+        <section  class="row justify-center">
+            <!-- Section for List of Events, details being pulled from SeatGeek API -->
+            <article id="event-list" class="container center" class="card-column">
+                <h4>List of Events</h4>
+                    <section class="event-buttons">
+                        <button id="event-1">1</button>
+                        <button id="event-2">2</button>
+                        <button id="event-3">3</button>
+                        <button id="event-4">4</button>
+                        <button id="event-5">5</button>
+                        <button id="event-6">6</button>
+                        <button id="event-7">7</button>
+                        <button id="event-8">8</button>
+                        <button id="event-9">9</button>
+                        <button id="event-10">10</button>
+                    </section>
+            </article>
 
-    <main>
-        <!-- Section for List of Events, details being pulled from SeatGeek API -->
-        <section id="event-list">
-            <h4>List of Events</h4>
-            <div class="event-buttons">
-                <button id="event-1">1</button>
-                <button id="event-2">2</button>
-                <button id="event-3">3</button>
-                <button id="event-4">4</button>
-                <button id="event-5">5</button>
-                <button id="event-6">6</button>
-                <button id="event-7">7</button>
-                <button id="event-8">8</button>
-                <button id="event-9">9</button>
-                <button id="event-10">10</button>
-            </div>
+            <!-- Section for Search History of Past Events  -->
+            <article id="search-history" class="container center">
+                <h4>Search History</h4>
+                    <section class="search-buttons">
+                        <button id="history-1">1</button>
+                        <button id="history-2">2</button>
+                        <button id="history-3">3</button>
+                        <button id="history-4">4</button>
+                        <button id="history-5">5</button>
+                        <button id="history-6">6</button>
+                        <button id="history-7">7</button>
+                        <button id="history-8">8</button>
+                        <button id="history-9">9</button>
+                        <button id="history-10">10</button>
+                    </section>
+            </article>
         </section>
-
-        <!-- Section for Search History of Past Events  -->
-        <section id="search-history">
-            <h4>Search History</h4>
-            <div>
-                <div class="search-buttons">
-                    <button id="history-1">1</button>
-                    <button id="history-2">2</button>
-                    <button id="history-3">3</button>
-                    <button id="history-4">4</button>
-                    <button id="history-5">5</button>
-                    <button id="history-6">6</button>
-                    <button id="history-7">7</button>
-                    <button id="history-8">8</button>
-                    <button id="history-9">9</button>
-                    <button id="history-10">10</button>
-
-                </div>
-            </div>
-        </section>
-
         <!-- Section that contains both the event details & map -->
         <section id="selected-event">
             <!-- Div of the details of the event> -->
@@ -79,17 +81,20 @@
             </div>
 
             <!--Div of the event-map, info being pulled from OpenStreetMap API-->
-            <div id="event-map">
-                <h4>Event Map</h4>
-                <iframe id="embeddedMap" width="425" height="350" frameborder="0" scrolling="no" marginheight="0"
+            <figure class="textbox code-card" id="event-map">
+                <h4 class="textbox-header">Event Map</h4>
+                <aside class="textbox-body">
+                    <p>Location.</p>
+                </aside>
+                <pre class="textbox-body">
+                    <iframe id="embeddedMap" width="425" height="350" frameborder="0" scrolling="no" marginheight="0"
                     marginwidth="0" style="border: 1px solid black"></iframe>
-            </div>
+                </pre>
+            </figure>
         </section>
 
 
     </main>
-
-
 
     <!--Jquery <script> tag -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -108,9 +113,13 @@
 
 <!--Footer section-->
 <footer>
-    <h5> Created by Thomas Calle, Shohei Mochizuki, Rebecca Lawrence </h5>
-    <p>
-        <h6>&copy; 2023 All rights reserved.</h6>
+    <section class="footer" id="footer"> 
+        <section class="form-footer">
+            <h5>Created by Thomas Calle, Shohei Mochizuki & Rebecca Lawrence</h5>
+            <p>
+            <h6>&copy; 2023 Team 7even. Confidential and Proprietary. All Rights Reserved.</h6>
+            </p>
+        </section>
+    </section>
 </footer>
-
 </html>
