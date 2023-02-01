@@ -23,8 +23,8 @@ let savedData = {} // Saved (in Local Storage) data will be stored here
 
 // 1. Initial actions when the page is loaded
 function init(){
-  fetchNewEvent();
-  getSavedEvent();
+  fetchNewEvent(); // Get event data from SeatGeek
+  getSavedEvent(); // Get event data from Local Storage
 }
 
 // 1-2. Fetch event data from SeatGeek
@@ -39,9 +39,9 @@ function fetchNewEvent(){
     fetch(apiUrlSeatGeek)
     .then(function (response) {
       if (response.ok===false) { // When there's an error, show the alert message below and do not continue subsequent executions
-        $(function(){ // dialog function using jQuery
-          $("#dialog").dialog();
-        });
+        // $(function(){ // dialog function using jQuery
+        //   $("#dialog").dialog();
+        // });
         // in HTML, the following lines need to be added
         // <div id="dialog" title="Warning"><p>Error</p></div> in <main> or <body>
         // jquery & jquery-ui links in <script> at the end of <body>
@@ -51,7 +51,6 @@ function fetchNewEvent(){
       } 
     })
     .then(function (data) {
-      console.log(data);
       for (a = 0; a < data.events.length; a++){ // Input fetched data into the object "fetchedData"
         let id = data.events[a].id;
         let category = data.events[a].type; // Theater, etc.
@@ -65,62 +64,32 @@ function fetchNewEvent(){
         let venueLon = data.events[a].venue.location.lon;
         fetchedData[id] = [category, title, datetime, performer, venueName, venueAddress, eventUrl, venueLat, venueLon];
       }
-      console.log(fetchedData);
-      createFetchedEventList(fetchedData);
+      createEventList(fetchedData, fetchedDataSection); // Create list of events/buttons in the new event list section
     });
 }
 
 
-// 1-3. Get saved (in Local Storage) data
+// 1-3. Get saved event data from Local Storage
 function getSavedEvent(){
-  savedData = JSON.parse(localStorage.getItem("eventData")); // Get the latest list of events from Local Storage
+  savedData = JSON.parse(localStorage.getItem("eventData")); 
     if (savedData !== null) {
-      createSavedEventList(savedData)
+      createEventList(savedData, savedDataSection) // Create list of events/buttons in the searched event list section
     }  
 }
 
 
-// 2-1. Create lists & buttons for 'fetchedData' (lefthand side section)
-function createFetchedEventList(fetchedData){
-  // let fetchedDataUl = document.createElement("div");
-  // fetchedDataSection.appendChild(fetchedDataUl);
-  // fetchedDataUl.setAttribute("id", "fetchedDataUl");
-  for (b = 0; b < Object.keys(fetchedData).length; b++){ // Create event buttons
-    let fetchedEveBtn = document.createElement("button");
-    document.getElementById("event-buttons").appendChild(fetchedEveBtn);
-    fetchedEveBtn.textContent = Object.values(fetchedData)[b][0] + ", " + Object.values(fetchedData)[b][1] + ", " + Object.values(fetchedData)[b][2];
-    fetchedEveBtn.setAttribute("data-key", Object.keys(fetchedData)[b]);
-    fetchedEveBtn.setAttribute("data-value0", Object.values(fetchedData)[b][0]);
-    fetchedEveBtn.setAttribute("data-value1", Object.values(fetchedData)[b][1]);
-    fetchedEveBtn.setAttribute("data-value2", Object.values(fetchedData)[b][2]);
-    fetchedEveBtn.setAttribute("data-value3", Object.values(fetchedData)[b][3]);
-    fetchedEveBtn.setAttribute("data-value4", Object.values(fetchedData)[b][4]);
-    fetchedEveBtn.setAttribute("data-value5", Object.values(fetchedData)[b][5]);
-    fetchedEveBtn.setAttribute("data-value6", Object.values(fetchedData)[b][6]);
-    fetchedEveBtn.setAttribute("data-value7", Object.values(fetchedData)[b][7]);
-    fetchedEveBtn.setAttribute("data-value8", Object.values(fetchedData)[b][8]);
+// 2-1. Create lists & buttons for either 'fetchedData' or 'savedData'
+function createEventList(data, location){ // (data, location) are input variables. They need to be specified when this function is called.
+  for (b = 0; b < Object.keys(data).length; b++){ 
+    let eventButton = document.createElement("button");
+    location.appendChild(eventButton);
+    eventButton.textContent = Object.values(data)[b][0] + ", " + Object.values(data)[b][1] + ", " + Object.values(data)[b][2];
+    eventButton.setAttribute("data-key", Object.keys(data)[b]);
+    for (c = 0; c < 9; c++){
+      eventButton.setAttribute(`data-value${c}`, Object.values(data)[b][c]);
+    }
   }
 };
-
-
-// 2-2. Create lists & buttons for 'savedData' (middle section)
-function createSavedEventList(savedData){  
-  for (c = 0; c < Object.keys(savedData).length; c++){ // Create history search buttons
-    let historyEveBtn = document.createElement("button");
-    document.getElementById("history-buttons").appendChild(historyEveBtn);
-    historyEveBtn.textContent = Object.values(savedData)[c][0] + ", " + Object.values(savedData)[c][1] + ", " + Object.values(savedData)[c][2];
-    historyEveBtn.setAttribute("data-key", Object.keys(savedData)[c]);
-    historyEveBtn.setAttribute("data-value0", Object.values(savedData)[c][0]);
-    historyEveBtn.setAttribute("data-value1", Object.values(savedData)[c][1]);
-    historyEveBtn.setAttribute("data-value2", Object.values(savedData)[c][2]);
-    historyEveBtn.setAttribute("data-value3", Object.values(savedData)[c][3]);
-    historyEveBtn.setAttribute("data-value4", Object.values(savedData)[c][4]);
-    historyEveBtn.setAttribute("data-value5", Object.values(savedData)[c][5]);
-    historyEveBtn.setAttribute("data-value6", Object.values(savedData)[c][6]);
-    historyEveBtn.setAttribute("data-value7", Object.values(savedData)[c][7]);
-    historyEveBtn.setAttribute("data-value8", Object.values(savedData)[c][8]);
-  }
-}
 
 
 // 3-1. [EVENT LISTENER] When a button of 'fetchedData' is clicked
@@ -159,7 +128,7 @@ function saveNewData(event){
   ]
   localStorage.setItem("eventData", JSON.stringify(savedData));
   clearSavedEventList(); // In order to update the list, the current list is deleted
-  createSavedEventList(savedData); // and new list with the new data will be listed
+  createEventList(savedData, savedDataSection); // and new list with the new data will be listed
 }
 
 
