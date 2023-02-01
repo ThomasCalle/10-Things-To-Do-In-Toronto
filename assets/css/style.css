@@ -42,9 +42,6 @@ html {
     width: 200px;
     height: 200px;
     border: 20px solid;
-
-
-
 }
 
 /* Body: Structure style */
@@ -93,6 +90,10 @@ body {
     background-color: white;
 }
 
+#headerTO {
+    background-color: #f2f2f2;
+    color: rgb(189, 144, 106);
+}
 /* H1 to H6 header design and frame perfect for mobile format*/
 h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.625rem;
@@ -123,7 +124,7 @@ h5 {
 }
 
 h6 {
-    font-size: 5px;
+    font-size: 15px;
 }
 
 
