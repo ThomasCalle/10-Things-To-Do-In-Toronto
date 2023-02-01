@@ -21,7 +21,7 @@ let savedData = {} // Saved (in Local Storage) data will be stored here
 // value[8] = venue longitude
 
 
-// 1. Initial actions when the page is loaded
+// 1-1. Initial actions when the page is loaded
 function init(){
   fetchNewEvent(); // Get event data from SeatGeek
   getSavedEvent(); // Get event data from Local Storage
@@ -32,10 +32,11 @@ function fetchNewEvent(){
   let today = dayjs();
   let dayOfWeek = today.format("d"); // Sun = 0, Mon = 1, Sat = 6
   let comingSat = today.add(6 - dayOfWeek,"day"); 
-  let comingSun = comingSat.add(1,"day");
+  let comingMon = comingSat.add(2,"day");
   let startDate = comingSat.format("YYYY-MM-DD");
-  let endDate = comingSun.format("YYYY-MM-DD");
-  let apiUrlSeatGeek = `https://api.seatgeek.com/2/events?lat=${latToronto}&lon=${lonToronto}&range=${range}&datetime_utc.gte=${startDate}&datetime_utc.lte=${endDate}&client_id=${apiKeySeatGeek}`; 
+  let endDate = comingMon.format("YYYY-MM-DD");
+  let perPage = 50;
+  let apiUrlSeatGeek = `https://api.seatgeek.com/2/events?lat=${latToronto}&lon=${lonToronto}&range=${range}&datetime_local.gte=${startDate}&datetime_local.lte=${endDate}&per_page=${perPage}&client_id=${apiKeySeatGeek}`; 
     fetch(apiUrlSeatGeek)
     .then(function (response) {
       if (response.ok===false) { // When there's an error, show the alert message below and do not continue subsequent executions
@@ -66,8 +67,23 @@ function fetchNewEvent(){
         fetchedData[id] = [category, title, datetime, performer, venueName, venueAddress, eventUrl, venueLat, venueLon];
       }
       createEventList(fetchedData, fetchedDataSection); // Create list of events/buttons in the new event list section
-    });
-}
+    })
+  }
+
+
+// let eventCategory = {};
+// let apiUrlSeatGeekTax = `https://api.seatgeek.com/2/taxonomies?client_id=${apiKeySeatGeek}`; 
+// fetch(apiUrlSeatGeekTax)
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (dataTax) {
+//     for (e = 0; e < dataTax.taxonomies.length; e++){
+//       let categoryId = dataTax.taxonomies[e].slug;
+//       let categoryName = dataTax.taxonomies[e].name;
+//       eventCategory[categoryId] = categoryName; 
+//     }
+//   });
 
 
 // 1-3. Get saved event data from Local Storage
