@@ -36,7 +36,7 @@ function fetchNewEvent(){
   let startDate = comingSat.format("YYYY-MM-DD");
   let endDate = comingMon.format("YYYY-MM-DD");
   let perPage = 10;
-  let apiUrlSeatGeek = `https://api.seatgeek.com/2/events?lat=${latToronto}&lon=${lonToronto}&range=${range}&datetime_local.gte=${startDate}&datetime_local.lte=${endDate}&per_page=${perPage}&client_id=${apiKeySeatGeek}`; 
+  let apiUrlSeatGeek = `https://api.seatgeek.com/2/events?lat=${latToronto}&lon=${lonToronto}&range=${range}&datetime_local.gte=${startDate}&datetime_local.lte=${endDate}&per_page=${perPage}&sort=datetime_local.asc&client_id=${apiKeySeatGeek}`; 
     fetch(apiUrlSeatGeek)
     .then(function (response) {
       if (response.ok===false) { // When there's an error, show the alert message below and do not continue subsequent executions
@@ -87,7 +87,8 @@ function createEventList(data, location){ // (data, location) are input variable
   for (b = 0; b < Object.keys(data).length; b++){ 
     let eventButton = document.createElement("button");
     location.appendChild(eventButton);
-    eventButton.textContent = Object.values(data)[b][0] + ", " + Object.values(data)[b][1] + ", " + Object.values(data)[b][2];
+    eventButton.textContent = "<" + Object.values(data)[b][0] + ">        " + Object.values(data)[b][1] + "      @" + Object.values(data)[b][2];
+    eventButton.setAttribute("class", "event-btn");
     eventButton.setAttribute("data-key", Object.keys(data)[b]);
     for (c = 0; c < 9; c++){
       eventButton.setAttribute(`data-value${c}`, Object.values(data)[b][c]);
@@ -99,17 +100,21 @@ function createEventList(data, location){ // (data, location) are input variable
 // 3-1. [EVENT LISTENER] When a button of 'fetchedData' is clicked
 fetchedDataSection.addEventListener("click", function(event){
   event.preventDefault();
-  saveNewData(event);
-  clearDetails(); 
-  showDetails(event);
+  if (event.target.getAttribute("class")==="event-btn"){
+    saveNewData(event);
+    clearDetails(); 
+    showDetails(event);
+  }
 });
 
 
 // 3-2. [EVENT LISTENER] When a button of 'savedData' is clicked
 savedDataSection.addEventListener("click", function(event){
   event.preventDefault();
-  clearDetails();
-  showDetails(event);
+  if (event.target.getAttribute("class")==="event-btn"){
+    clearDetails();
+    showDetails(event);
+  }
 });
 
 
