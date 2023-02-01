@@ -1,7 +1,7 @@
 /* Begining of CSS Styles Sheet - TUBYmoto*/
 
 html {
-    font-size: 62%;
+    /* font-size: 62%;   commented out, it makes the navbar malfunction with TailwindCSS*/
     scroll-behavior: smooth;
     cursor: pointer;
 }
@@ -103,27 +103,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 40px;
-}
-
-h2 {
     font-size: 35px;
 }
 
-h3 {
+h2 {
     font-size: 30px;
 }
 
-h4 {
+h3 {
     font-size: 25px;
 }
 
-h5 {
+h4 {
     font-size: 20px;
 }
 
+h5 {
+    font-size: 15px;
+}
+
 h6 {
-    font-size: 10px;
+    font-size: 5px;
 }
 
 
@@ -247,6 +247,8 @@ h6 {
     .avatar{
         
     }
+
+
 }
 /* Responsive: LIGHT/DARK Mode */ 
 /* FunFact OLED Displays  */

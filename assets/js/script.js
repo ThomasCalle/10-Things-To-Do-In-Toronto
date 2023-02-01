@@ -4,7 +4,7 @@ const lonToronto = -79.347015; // Longitude of Toronto
 const apiKeySeatGeek = "MzE3MDE3ODN8MTY3NTExMzI2My43OTE4ODI4" // API key for SeatGeek
 const range = "30mi"; // Default = 30miles (when not specified) // Feel free to change
 let fetchedDataSection = document.getElementById("event-buttons"); // New event list section to click 
-let savedDataSection = document.getElementById("history-buttons"); // Saved event list section to click
+let savedDataSection = document.getElementById("search-buttons"); // Saved event list section to click
 let selectedEventSection = document.getElementById("selected-event"); // Saved event list section to click
 // Blank objects to store data {key, [value[0], value[1], value[2], ... , value[8]]}
 let fetchedData = {} // Fetched (new) data will be stored here 
@@ -21,7 +21,7 @@ let savedData = {} // Saved (in Local Storage) data will be stored here
 // value[8] = venue longitude
 
 
-// 1. Initial actions when the page is loaded
+// 1-1. Initial actions when the page is loaded
 function init(){
   fetchNewEvent(); // Get event data from SeatGeek
   getSavedEvent(); // Get event data from Local Storage
@@ -32,10 +32,11 @@ function fetchNewEvent(){
   let today = dayjs();
   let dayOfWeek = today.format("d"); // Sun = 0, Mon = 1, Sat = 6
   let comingSat = today.add(6 - dayOfWeek,"day"); 
-  let comingSun = comingSat.add(1,"day");
+  let comingMon = comingSat.add(2,"day");
   let startDate = comingSat.format("YYYY-MM-DD");
-  let endDate = comingSun.format("YYYY-MM-DD");
-  let apiUrlSeatGeek = `https://api.seatgeek.com/2/events?lat=${latToronto}&lon=${lonToronto}&range=${range}&datetime_utc.gte=${startDate}&datetime_utc.lte=${endDate}&client_id=${apiKeySeatGeek}`; 
+  let endDate = comingMon.format("YYYY-MM-DD");
+  let perPage = 50;
+  let apiUrlSeatGeek = `https://api.seatgeek.com/2/events?lat=${latToronto}&lon=${lonToronto}&range=${range}&datetime_local.gte=${startDate}&datetime_local.lte=${endDate}&per_page=${perPage}&client_id=${apiKeySeatGeek}`; 
     fetch(apiUrlSeatGeek)
     .then(function (response) {
       if (response.ok===false) { // When there's an error, show the alert message below and do not continue subsequent executions
@@ -51,6 +52,8 @@ function fetchNewEvent(){
       } 
     })
     .then(function (data) {
+      console.log(data);
+      let categories = {};
       for (a = 0; a < data.events.length; a++){ // Input fetched data into the object "fetchedData"
         let id = data.events[a].id;
         let category = data.events[a].type; // Theater, etc.
@@ -62,11 +65,56 @@ function fetchNewEvent(){
         let eventUrl = data.events[a].url;
         let venueLat = data.events[a].venue.location.lat;
         let venueLon = data.events[a].venue.location.lon;
+        categories[category] = "";
         fetchedData[id] = [category, title, datetime, performer, venueName, venueAddress, eventUrl, venueLat, venueLon];
       }
+      createCategorySelection(categories);
       createEventList(fetchedData, fetchedDataSection); // Create list of events/buttons in the new event list section
-    });
+    })
+  }
+
+
+function createCategorySelection(categories){
+  let selectCategorySection = document.createElement("div");
+  document.getElementById("event-list").appendChild(selectCategorySection);
+  selectCategorySection.setAttribute("id", "selectCategorySection");
+
+  let selectCategoryButton = document.createElement("label");
+  document.getElementById("selectCategorySection").appendChild(selectCategoryButton);
+  selectCategoryButton.setAttribute("id", "selectCategoryButton");
+  selectCategoryButton.textContent = "Select event category";
+
+  let selectCategoryDropdown = document.createElement("select");
+  document.getElementById("selectCategorySection").appendChild(selectCategoryDropdown);
+  selectCategoryDropdown.setAttribute("id", "selectCategoryDropdown");
+
+  for (f = 0; f < Object.keys(categories).length; f++){
+    let selectCategoryItem = document.createElement("option");
+    document.getElementById("selectCategoryDropdown").appendChild(selectCategoryItem);
+    selectCategoryItem.textContent = Object.keys(categories)[f];
+  }
+
+  // [EVENT LISTENER] When a event category is selected
+  document.getElementById("selectCategoryDropdown").addEventListener("change", function(){
+    console.log("selection changed");
+    createEventList
+})
 }
+
+
+// let eventCategory = {};
+// let apiUrlSeatGeekTax = `https://api.seatgeek.com/2/taxonomies?client_id=${apiKeySeatGeek}`; 
+// fetch(apiUrlSeatGeekTax)
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (dataTax) {
+//     for (e = 0; e < dataTax.taxonomies.length; e++){
+//       let categoryId = dataTax.taxonomies[e].slug;
+//       let categoryName = dataTax.taxonomies[e].name;
+//       eventCategory[categoryId] = categoryName; 
+//     }
+//   });
 
 
 // 1-3. Get saved event data from Local Storage
