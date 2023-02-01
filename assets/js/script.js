@@ -53,6 +53,7 @@ function fetchNewEvent(){
     })
     .then(function (data) {
       console.log(data);
+      let categories = {};
       for (a = 0; a < data.events.length; a++){ // Input fetched data into the object "fetchedData"
         let id = data.events[a].id;
         let category = data.events[a].type; // Theater, etc.
@@ -64,11 +65,41 @@ function fetchNewEvent(){
         let eventUrl = data.events[a].url;
         let venueLat = data.events[a].venue.location.lat;
         let venueLon = data.events[a].venue.location.lon;
+        categories[category] = "";
         fetchedData[id] = [category, title, datetime, performer, venueName, venueAddress, eventUrl, venueLat, venueLon];
       }
+      createCategorySelection(categories);
       createEventList(fetchedData, fetchedDataSection); // Create list of events/buttons in the new event list section
     })
   }
+
+
+function createCategorySelection(categories){
+  let selectCategorySection = document.createElement("div");
+  document.getElementById("event-list").appendChild(selectCategorySection);
+  selectCategorySection.setAttribute("id", "selectCategorySection");
+
+  let selectCategoryButton = document.createElement("label");
+  document.getElementById("selectCategorySection").appendChild(selectCategoryButton);
+  selectCategoryButton.setAttribute("id", "selectCategoryButton");
+  selectCategoryButton.textContent = "Select event category";
+
+  let selectCategoryDropdown = document.createElement("select");
+  document.getElementById("selectCategorySection").appendChild(selectCategoryDropdown);
+  selectCategoryDropdown.setAttribute("id", "selectCategoryDropdown");
+
+  for (f = 0; f < Object.keys(categories).length; f++){
+    let selectCategoryItem = document.createElement("option");
+    document.getElementById("selectCategoryDropdown").appendChild(selectCategoryItem);
+    selectCategoryItem.textContent = Object.keys(categories)[f];
+  }
+
+  // [EVENT LISTENER] When a event category is selected
+  document.getElementById("selectCategoryDropdown").addEventListener("change", function(){
+    console.log("selection changed");
+    createEventList
+})
+}
 
 
 // let eventCategory = {};
