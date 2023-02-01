@@ -110,7 +110,7 @@ h6 {
 }
 
 
-/* Resume container blocks - this is holding the blocks into the center of the page - otherwise the containers would be pushed out to the edge of the page */
+/* Container blocks - this is holding the blocks into the center of the page - otherwise the containers would be pushed out to the edge of the page */
 .container {
     width: 100%;
     max-width: 1320px;
