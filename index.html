@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,64 +11,87 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- Tailwind CSS <link> tag-->
     <link href=“https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css” rel=“stylesheet” />
+
+
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1 id="pageTitle">10 Things To Do In Toronto</h1>
+    <!--  Header & Sticky Navigation bar created with Tailwind CSS-->
+ 
+    <header class="header sticky top-0 bg-white shadow-md flex items-center justify-between px-8 py-02">
+        <!-- logo to be added-->
+        <h1 class="w-1/4"> 10 Things To Do In Toronto </h1>
+
+        <!-- navigation -->
+        <nav class="nav font-semibold text-lg">
+            <menu class="flex items-center list-none">
+                <li
+                    class="p-4 border-b-2 border-orange-500 border-opacity-0 hover:border-opacity-100 hover:text-orange-500 duration-200 cursor-pointer active">
+                    <a href="#event-list">Event List</a>
+                </li>
+                <li
+                    class="p-4 border-b-2 border-orange-500 border-opacity-0 hover:border-opacity-100 hover:text-orange-500 duration-200 cursor-pointer">
+                    <a href="#search-history">Saved Events</a>
+                </li>
+                <li
+                    class="p-4 border-b-2 border-orange-500 border-opacity-0 hover:border-opacity-100 hover:text-orange-500 duration-200 cursor-pointer">
+                    <a href="#selected-event">Event Details</a>
+                </li>
+            </menu>
+        </nav>
+
     </header>
-        <nav class="menu">
-            <ul>
-                <li><a href="event-list">List of Events</a></li>
-                <li><a href="search-history">Search History</a></li>
-                <li><a href="event-info">Details of the Event</a></li>
-            </ul>
-        </nav>    
+
+
+<!--Main section of page-->
+
     <main class="container">
-        <section  class="row justify-center">
+        <section class="row justify-center">
             <!-- Section for List of Events, details being pulled from SeatGeek API -->
             <article id="event-list" class="container center" class="card-column">
                 <h4>List of Events</h4>
-                    <section class="event-buttons">
-                        <button id="event-1">1</button>
-                        <button id="event-2">2</button>
-                        <button id="event-3">3</button>
-                        <button id="event-4">4</button>
-                        <button id="event-5">5</button>
-                        <button id="event-6">6</button>
-                        <button id="event-7">7</button>
-                        <button id="event-8">8</button>
-                        <button id="event-9">9</button>
-                        <button id="event-10">10</button>
-                    </section>
+                <section class="event-buttons">
+                    <button id="event-1">1</button>
+                    <button id="event-2">2</button>
+                    <button id="event-3">3</button>
+                    <button id="event-4">4</button>
+                    <button id="event-5">5</button>
+                    <button id="event-6">6</button>
+                    <button id="event-7">7</button>
+                    <button id="event-8">8</button>
+                    <button id="event-9">9</button>
+                    <button id="event-10">10</button>
+                </section>
             </article>
 
             <!-- Section for Search History of Past Events  -->
             <article id="search-history" class="container center">
                 <h4>Search History</h4>
-                    <section class="search-buttons">
-                        <button id="history-1">1</button>
-                        <button id="history-2">2</button>
-                        <button id="history-3">3</button>
-                        <button id="history-4">4</button>
-                        <button id="history-5">5</button>
-                        <button id="history-6">6</button>
-                        <button id="history-7">7</button>
-                        <button id="history-8">8</button>
-                        <button id="history-9">9</button>
-                        <button id="history-10">10</button>
-                    </section>
+                <section class="search-buttons">
+                    <button id="history-1">1</button>
+                    <button id="history-2">2</button>
+                    <button id="history-3">3</button>
+                    <button id="history-4">4</button>
+                    <button id="history-5">5</button>
+                    <button id="history-6">6</button>
+                    <button id="history-7">7</button>
+                    <button id="history-8">8</button>
+                    <button id="history-9">9</button>
+                    <button id="history-10">10</button>
+                </section>
             </article>
         </section>
         <!-- Section that contains both the event details & map -->
         <section id="selected-event">
             <!-- Div of the details of the event> -->
             <div id="event-info">
-                <h4>Details of the Event</h4>
-                <div id="event-details">
+                <h4>Event Details</h4>
+                <div id="selected-event">
                     <!-- Unordered list containing the pertinant event details for the user-->
                     <ul>
                         <li id="event-category"></li>
@@ -112,7 +136,7 @@
 
 <!--Footer section-->
 <footer>
-    <section class="footer" id="footer"> 
+    <section class="footer" id="footer">
         <section class="form-footer">
             <h5>Created by Thomas Calle, Shohei Mochizuki & Rebecca Lawrence</h5>
             <p>
@@ -121,4 +145,5 @@
         </section>
     </section>
 </footer>
+
 </html>
