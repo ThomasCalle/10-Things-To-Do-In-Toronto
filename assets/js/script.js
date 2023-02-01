@@ -4,7 +4,7 @@ const lonToronto = -79.347015; // Longitude of Toronto
 const apiKeySeatGeek = "MzE3MDE3ODN8MTY3NTExMzI2My43OTE4ODI4" // API key for SeatGeek
 const range = "30mi"; // Default = 30miles (when not specified) // Feel free to change
 let fetchedDataSection = document.getElementById("event-buttons"); // New event list section to click 
-let savedDataSection = document.getElementById("history-buttons"); // Saved event list section to click
+let savedDataSection = document.getElementById("search-buttons"); // Saved event list section to click
 let selectedEventSection = document.getElementById("selected-event"); // Saved event list section to click
 // Blank objects to store data {key, [value[0], value[1], value[2], ... , value[8]]}
 let fetchedData = {} // Fetched (new) data will be stored here 
@@ -51,6 +51,7 @@ function fetchNewEvent(){
       } 
     })
     .then(function (data) {
+      console.log(data);
       for (a = 0; a < data.events.length; a++){ // Input fetched data into the object "fetchedData"
         let id = data.events[a].id;
         let category = data.events[a].type; // Theater, etc.

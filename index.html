@@ -21,9 +21,9 @@
     </header>
         <nav class="menu">
             <ul>
-                <li><a href="event-list">List of Events</a></li>
-                <li><a href="search-history">Search History</a></li>
-                <li><a href="event-info">Details of the Event</a></li>
+                <li><a href="#event-list">List of Events</a></li>
+                <li><a href="#search-history">Search History</a></li>
+                <li><a href="#selected-event">Details of the Event</a></li>
             </ul>
         </nav>    
     <main class="container">
@@ -31,8 +31,8 @@
             <!-- Section for List of Events, details being pulled from SeatGeek API -->
             <article id="event-list" class="container center" class="card-column">
                 <h4>List of Events</h4>
-                    <section class="event-buttons">
-                        <button id="event-1">1</button>
+                    <section class="event-buttons" id="event-buttons">
+                        <!-- <button id="event-1">1</button>
                         <button id="event-2">2</button>
                         <button id="event-3">3</button>
                         <button id="event-4">4</button>
@@ -41,15 +41,15 @@
                         <button id="event-7">7</button>
                         <button id="event-8">8</button>
                         <button id="event-9">9</button>
-                        <button id="event-10">10</button>
+                        <button id="event-10">10</button> -->
                     </section>
             </article>
 
             <!-- Section for Search History of Past Events  -->
             <article id="search-history" class="container center">
                 <h4>Search History</h4>
-                    <section class="search-buttons">
-                        <button id="history-1">1</button>
+                    <section class="search-buttons" id="search-buttons">
+                        <!-- <button id="history-1">1</button>
                         <button id="history-2">2</button>
                         <button id="history-3">3</button>
                         <button id="history-4">4</button>
@@ -58,18 +58,18 @@
                         <button id="history-7">7</button>
                         <button id="history-8">8</button>
                         <button id="history-9">9</button>
-                        <button id="history-10">10</button>
+                        <button id="history-10">10</button> -->
                     </section>
             </article>
         </section>
         <!-- Section that contains both the event details & map -->
         <section id="selected-event">
             <!-- Div of the details of the event> -->
-            <div id="event-info">
+            <!-- <div id="event-info">
                 <h4>Details of the Event</h4>
-                <div id="event-details">
+                <div id="event-details"> -->
                     <!-- Unordered list containing the pertinant event details for the user-->
-                    <ul>
+                    <!-- <ul>
                         <li id="event-category"></li>
                         <li id="event-title"><a href="/"></a></li>
                         <li id="event-date-time"></li>
@@ -78,10 +78,10 @@
                         <li id="venue-address"></li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
 
             <!--Div of the event-map, info being pulled from OpenStreetMap API-->
-            <figure class="textbox code-card" id="event-map">
+            <!-- <figure class="textbox code-card" id="event-map">
                 <h4 class="textbox-header">Event Map</h4>
                 <aside class="textbox-body">
                     <p>Location.</p>
@@ -90,7 +90,7 @@
                     <iframe id="embeddedMap" width="425" height="350" frameborder="0" scrolling="no" marginheight="0"
                     marginwidth="0" style="border: 1px solid black"></iframe>
                 </pre>
-            </figure>
+            </figure> -->
         </section>
 
     </main>
