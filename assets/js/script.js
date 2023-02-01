@@ -35,7 +35,7 @@ function fetchNewEvent(){
   let comingMon = comingSat.add(2,"day");
   let startDate = comingSat.format("YYYY-MM-DD");
   let endDate = comingMon.format("YYYY-MM-DD");
-  let perPage = 50;
+  let perPage = 10;
   let apiUrlSeatGeek = `https://api.seatgeek.com/2/events?lat=${latToronto}&lon=${lonToronto}&range=${range}&datetime_local.gte=${startDate}&datetime_local.lte=${endDate}&per_page=${perPage}&client_id=${apiKeySeatGeek}`; 
     fetch(apiUrlSeatGeek)
     .then(function (response) {
@@ -68,53 +68,9 @@ function fetchNewEvent(){
         categories[category] = "";
         fetchedData[id] = [category, title, datetime, performer, venueName, venueAddress, eventUrl, venueLat, venueLon];
       }
-      createCategorySelection(categories);
       createEventList(fetchedData, fetchedDataSection); // Create list of events/buttons in the new event list section
     })
   }
-
-
-function createCategorySelection(categories){
-  let selectCategorySection = document.createElement("div");
-  document.getElementById("event-list").appendChild(selectCategorySection);
-  selectCategorySection.setAttribute("id", "selectCategorySection");
-
-  let selectCategoryButton = document.createElement("label");
-  document.getElementById("selectCategorySection").appendChild(selectCategoryButton);
-  selectCategoryButton.setAttribute("id", "selectCategoryButton");
-  selectCategoryButton.textContent = "Select event category";
-
-  let selectCategoryDropdown = document.createElement("select");
-  document.getElementById("selectCategorySection").appendChild(selectCategoryDropdown);
-  selectCategoryDropdown.setAttribute("id", "selectCategoryDropdown");
-
-  for (f = 0; f < Object.keys(categories).length; f++){
-    let selectCategoryItem = document.createElement("option");
-    document.getElementById("selectCategoryDropdown").appendChild(selectCategoryItem);
-    selectCategoryItem.textContent = Object.keys(categories)[f];
-  }
-
-  // [EVENT LISTENER] When a event category is selected
-  document.getElementById("selectCategoryDropdown").addEventListener("change", function(){
-    console.log("selection changed");
-    createEventList
-})
-}
-
-
-// let eventCategory = {};
-// let apiUrlSeatGeekTax = `https://api.seatgeek.com/2/taxonomies?client_id=${apiKeySeatGeek}`; 
-// fetch(apiUrlSeatGeekTax)
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (dataTax) {
-//     for (e = 0; e < dataTax.taxonomies.length; e++){
-//       let categoryId = dataTax.taxonomies[e].slug;
-//       let categoryName = dataTax.taxonomies[e].name;
-//       eventCategory[categoryId] = categoryName; 
-//     }
-//   });
 
 
 // 1-3. Get saved event data from Local Storage
@@ -239,12 +195,13 @@ function fetchMap(event){
   let mapSection = document.createElement("div");
   selectedEventSection.appendChild(mapSection);
   mapSection.setAttribute("id", "mapSection");
+  mapSection.setAttribute("class", "container center");
   let mapFrame = document.createElement("iframe");
   document.getElementById("mapSection").appendChild(mapFrame);
   mapFrame.setAttribute("id", "mapFrame");
-  let mapAttributeKeys = ["width", "height", "frameborder", "scrolling", "marginheight", "marginwidth", "style"];
-  let mapAttributeValues = [425, 350, 0, "no", 0, 0, "border: 1px solid black"];
-  for (d = 0; d < 7; d++){
+  let mapAttributeKeys = ["width", "height", "frameborder", "scrolling", "marginheight", "marginwidth", "style", "class"];
+  let mapAttributeValues = [425, 425, 0, "no", 0, 0, "border: 1px solid black", "container center"];
+  for (d = 0; d < 8; d++){
     mapFrame.setAttribute(mapAttributeKeys[d], mapAttributeValues[d]);
   }
   document.getElementById("mapFrame").setAttribute("src", `https://www.openstreetmap.org/export/embed.html?bbox=${leftLon}%2C${bottomLat}%2C${rightLon}%2C${topLat}&amp;layer=mapnik&amp;marker=${centerLat}%2C${centerLon}`);
