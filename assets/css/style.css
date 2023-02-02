@@ -12,7 +12,6 @@
 html {
     /* font-size: 62%;   commented out, it makes the navbar malfunction with TailwindCSS*/
     scroll-behavior: smooth;
-    cursor: pointer;
 }
 
 /* Navigation Menu: optional layout for (3) given titles e.g: About, Events, and Contact*/
@@ -34,25 +33,33 @@ html {
 
 /* Avatar: or Image for Central Head of CSS style sheet if necessary */
 .container-avatar {
-
     width: 100%;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(45deg, rgba(227, 194, 5, 0.36),rgba(241, 175, 32, 0.394), rgba(199, 113, 33, 0.453), rgba(201, 17, 115, 0.464), rgba(34, 107, 210, 0.369)); /* Standard syntax */
 }
-
 .avatar {
     width: 300px;
     height: 300px;
-    background: radial-gradient(tan, red, rgb(7, 7, 165));
+    background: radial-gradient(tan,red, rgb(7, 7, 165) );
     border-radius: 16rem;
-}
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 200px;
+    font-weight: 900;
+    text-shadow: 10px -8px 14px rgb(255, 0, 0) ;
+    box-shadow: rgba(169, 17, 17, 0.78) 0px 10px 14px 1px;
 
-.avatar-soul {
-    width: 200px;
-    height: 200px;
-    border: 20px solid;
+}
+/* NOTE: Might not need AVATAR-INNER */
+.avatar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Body: Structure style */
@@ -63,19 +70,17 @@ Body {
     flex-direction: column;
     min-height: 100vh;
     justify-content: center;
-
 }
-
 /* Backdrop Image: of deployed webpage header */
 .hero {
-    height: 800px;
+    height: 200px;
     width: 100%;
     margin-bottom: 25px;
     /* background-image: url(); */
     background-size: cover;
     background-position: center;
+    background: linear-gradient(90deg, rgba(227, 194, 5, 0.36),rgba(241, 175, 32, 0.394), rgba(199, 113, 33, 0.453), rgba(201, 17, 115, 0.464), rgba(34, 107, 210, 0.369)); /* Standard syntax */
 }
-
 /* Card body's will contain organized  */
 
 .card-body {
@@ -121,7 +126,8 @@ h6 {
 }
 
 h1 {
-    font-size: 35px;
+    font-size: 60px;
+    color: white
 }
 
 h2 {
