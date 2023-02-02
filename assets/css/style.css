@@ -104,8 +104,6 @@ body {
 #headerTO {
     background-color: var(--grey);
     color: var(--tan);
-    ;
-
 }
 
 /* H1 to H6 header design and frame perfect for mobile format*/
@@ -143,7 +141,7 @@ h5 {
 }
 
 h6 {
-    font-size: 5px;
+    font-size: 15px;
 }
 
 
