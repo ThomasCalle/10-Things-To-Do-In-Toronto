@@ -166,21 +166,27 @@ function showDetails(event){
   detailSection.appendChild(detailList);
   detailList.appendChild(detailUl);
   detailH4.textContent = "Details of the Event";
-  let titlesForLi = ["Category: ", "Event: ", "Date/Time: ", "Performed by: ", "Venue: ", "Address: "]; // Texts to be shown next to each information in the list are stored in an array so that it can be used within a FOR loop 
-  for (c = 0; c < 6; c++){
+  let titlesForLi = ["Category: ", "Event: ", "Date: ", "Time: ", "Performed by: ", "Venue: ", "Address: "]; // Texts to be shown next to each information in the list are stored in an array so that it can be used within a FOR loop 
+  for (c = 0; c < 7; c++){
     let detailLi = document.createElement("li"); // Create <li> element under <ul>
     detailUl.appendChild(detailLi);
     detailLi.setAttribute("id", `detail-value${c}`); // Add id to each <li> element
-    if (c === 1){ // For the event name <li>, add a link element <a> below it so that when you click the event name, it takes you to the SeatGeek page
+    if (c === 0){
+      detailLi.textContent = titlesForLi[c] + event.target.getAttribute(`data-value${c}`);
+    } else if (c === 1){ // For the event name <li>, add a link element <a> below it so that when you click the event name, it takes you to the SeatGeek page
       let detailLink = document.createElement("a");
       document.getElementById("detail-value1").appendChild(detailLink);
       detailLink.setAttribute("href", event.target.getAttribute("data-value6")); // href = SeatGeek URL
       detailLink.setAttribute("target", "_blank"); // When the link is clicked, open the page in a new tab
+      detailLink.setAttribute("style", "text-decoration: underline ; text-decoration-color: var(--tan)"); // When the link is clicked, open the page in a new tab
+      // detailLink.setAttribute("style", "text-decoration-color: #FFFFFF"); // When the link is clicked, open the page in a new tab
       detailLink.textContent = titlesForLi[c] + event.target.getAttribute(`data-value${c}`);
     } else if (c === 2) {
-      detailLi.textContent = titlesForLi[c] + dayjs(event.target.getAttribute(`data-value${c}`)).format("MMM D h:mma"); // For the date/time <li>, specify the date/time format using dayJS
+      detailLi.textContent = titlesForLi[c] + dayjs(event.target.getAttribute(`data-value${c}`)).format("MMMM D, dddd"); // For the date/time <li>, specify the date/time format using dayJS
+    } else if (c === 3) {
+      detailLi.textContent = titlesForLi[c] + dayjs(event.target.getAttribute(`data-value${c-1}`)).format("h:mma"); // For the date/time <li>, specify the date/time format using dayJS
     } else {
-      detailLi.textContent = titlesForLi[c] + event.target.getAttribute(`data-value${c}`);
+      detailLi.textContent = titlesForLi[c] + event.target.getAttribute(`data-value${c-1}`);
     }
   }
   fetchMap(event); // After showing the details of the event, fetch map data from OpenStreetMap
