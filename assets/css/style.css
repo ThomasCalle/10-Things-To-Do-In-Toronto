@@ -40,6 +40,7 @@ html {
     justify-content: center;
     background: linear-gradient(45deg, rgba(227, 194, 5, 0.36),rgba(241, 175, 32, 0.394), rgba(199, 113, 33, 0.453), rgba(201, 17, 115, 0.464), rgba(34, 107, 210, 0.369)); /* Standard syntax */
 }
+
 .avatar {
     width: 300px;
     height: 300px;
@@ -103,8 +104,8 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 1.75rem;
     line-height: 1.5;
-    color: black;
-    background-color: white;
+    /* color: black;
+    background-color: white; */
 }
 
 #headerTO {
@@ -253,6 +254,7 @@ h6 {
     font-size: 1rem;
     border-radius: 45px;
     border: 2px solid var(--tan);
+    background-color: var(--grey);
 }
 
 .event-btn:hover {
@@ -292,12 +294,12 @@ h6 {
 
 /* Responsive: LIGHT/DARK Mode */
 /* FunFact OLED Displays  */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     body {
         background-color: #212b31;
         color: white;
     }
-}
+} */
 
 .footer {
     background-color: var(--grey);
