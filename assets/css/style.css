@@ -71,6 +71,8 @@ Body {
     flex-direction: column;
     min-height: 100vh;
     justify-content: center;
+    background: linear-gradient(180deg, rgb(237, 171, 27, .400),rgb(222, 149, 24, .400), rgb(184, 101, 12, .400), rgb(140, 67, 7, .400));
+    /* background: linear-gradient(180deg, rgb(1, 8, 30, 0.900),rgba(7, 13, 49, 0.900), rgba(13, 19, 68, 0.800), rgb(19, 24, 86, 0.700), rgb(24, 29, 105, 0.600)); Standard syntax */
 }
 /* Backdrop Image: of deployed webpage header */
 .hero {
@@ -80,7 +82,6 @@ Body {
     /* background-image: url(); */
     background-size: cover;
     background-position: center;
-    background: linear-gradient(90deg, rgba(227, 194, 5, 0.36),rgba(241, 175, 32, 0.394), rgba(199, 113, 33, 0.453), rgba(201, 17, 115, 0.464), rgba(34, 107, 210, 0.369)); /* Standard syntax */
 }
 /* Card body's will contain organized  */
 
