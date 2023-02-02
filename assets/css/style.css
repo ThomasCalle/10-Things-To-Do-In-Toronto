@@ -40,6 +40,7 @@ html {
     justify-content: center;
     background: linear-gradient(45deg, rgba(227, 194, 5, 0.36),rgba(241, 175, 32, 0.394), rgba(199, 113, 33, 0.453), rgba(201, 17, 115, 0.464), rgba(34, 107, 210, 0.369)); /* Standard syntax */
 }
+
 .avatar {
     width: 300px;
     height: 300px;
