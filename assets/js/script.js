@@ -87,7 +87,7 @@ function createEventList(data, location){ // (data, location) are input variable
   for (b = 0; b < Object.keys(data).length; b++){ 
     let eventButton = document.createElement("button");
     location.appendChild(eventButton);
-    eventButton.textContent = "<" + Object.values(data)[b][0] + ">        " + Object.values(data)[b][1] + "      @" + Object.values(data)[b][2];
+    eventButton.textContent = Object.values(data)[b][1] + " , " + dayjs(Object.values(data)[b][2]).format("MMM D h:mma");
     eventButton.setAttribute("class", "event-btn");
     eventButton.setAttribute("data-key", Object.keys(data)[b]);
     for (c = 0; c < 9; c++){
@@ -180,8 +180,10 @@ function showDetails(event){
       detailLink.setAttribute("href", event.target.getAttribute("data-value6"));
       detailLink.setAttribute("target", "_blank");
       detailLink.textContent = titlesForLi[c] + event.target.getAttribute(`data-value${c}`);
+    } else if (c === 2) {
+      detailLi.textContent = titlesForLi[c] + dayjs(event.target.getAttribute(`data-value${c}`)).format("MMM D h:mma");
     } else {
-    detailLi.textContent = titlesForLi[c] + event.target.getAttribute(`data-value${c}`);
+      detailLi.textContent = titlesForLi[c] + event.target.getAttribute(`data-value${c}`);
     }
   }
   fetchMap(event);
