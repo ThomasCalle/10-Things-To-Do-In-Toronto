@@ -1,5 +1,14 @@
 /* Begining of CSS Styles Sheet - TUBYmoto*/
 
+:root {
+    --tan: rgb(189, 144, 106);
+    --grey: #f2f2f2;
+    --darkGrey: #33393f;
+    --teal: #99CCCC;
+    --darkTeal: #cce6e6;
+}
+
+
 html {
     /* font-size: 62%;   commented out, it makes the navbar malfunction with TailwindCSS*/
     scroll-behavior: smooth;
@@ -11,11 +20,13 @@ html {
     margin-top: 1.5rem;
     text-align: center;
 }
+
 .menu ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
+
 .menu ul li {
     display: inline-block;
     margin: 0 10px;
@@ -34,7 +45,7 @@ html {
 .avatar {
     width: 300px;
     height: 300px;
-    background: radial-gradient(tan,red, rgb(7, 7, 165) );
+    background: radial-gradient(tan, red, rgb(7, 7, 165));
     border-radius: 16rem;
 }
 
@@ -78,7 +89,7 @@ Body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    
+
 }
 
 /* Body: font size family used throughout the CSS*/
@@ -91,13 +102,19 @@ body {
 }
 
 #headerTO {
-    background-color: #f2f2f2;
-    color: rgb(189, 144, 106);
+    background-color: var(--grey);
+    color: var(--tan);
 }
+
 /* H1 to H6 header design and frame perfect for mobile format*/
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin-bottom: 0.625rem;
-    color: rgb(189, 144, 106);
+    color: var(--tan);
     font-weight: 700;
     line-height: 1.1;
     text-align: center;
@@ -169,7 +186,7 @@ h6 {
     justify-content: flex-start;
     min-height: 100%;
     padding: 2rem;
-    color: rgb(189, 144, 106);
+    color: var(--tan);
     outline: 2px double #dbd4cb;
     outline-offset: -2px;
     transition: all 0.5s ease-in-out;
@@ -179,8 +196,8 @@ h6 {
 .textbox .textbox-header {
     border: 2px solid #eae6e0;
     border-radius: 8px;
-    background-color: #33393f;
-    color: rgb(189, 144, 106);
+    background-color: var(--darkGrey);
+    color: var(--tan);
     transition: all 0.5s ease-in-out;
     display: block;
     margin-left: auto;
@@ -193,7 +210,7 @@ h6 {
 /* Resume: card hover/glow effect turns on when mouse gloats */
 .textbox:hover,
 .textbox:hover .textbox-header {
-    box-shadow: inset 
+    box-shadow: inset
 }
 
 
@@ -222,18 +239,34 @@ h6 {
 }
 
 
+.event-btn {
+    color: var(--darkGrey);
+    margin: .5rem;
+    padding: 2px;
+    font-size: 1rem;
+    border-radius: 45px;
+    border: 2px solid var(--tan);
+}
+
+.event-btn:hover {
+    background-color: var(--teal);
+    box-shadow: 0px 15px 20px var(--darkTeal);
+    color: var(--darkGrey);
+    transform: translateY(-7px);
+
+}
+
+
 /* Responsive Design */
 @media screen and (min-width: 768px) {
 
     .textbox-column {
         flex: 0 0 50%;
     }
-    .hero{
 
-    }
-    .avatar{
+    .hero {}
 
-    }
+    .avatar {}
 
 }
 
@@ -242,29 +275,29 @@ h6 {
     .textbox-column {
         flex: 0 0 33%;
     }
-    .hero{
 
-    }
-    .avatar{
-        
-    }
+    .hero {}
+
+    .avatar {}
 
 
 }
-/* Responsive: LIGHT/DARK Mode */ 
+
+/* Responsive: LIGHT/DARK Mode */
 /* FunFact OLED Displays  */
 @media (prefers-color-scheme: dark) {
-    body{
-        background-color: #212b31 ;
-        color:white;
+    body {
+        background-color: #212b31;
+        color: white;
     }
 }
 
 .footer {
-    background-color: #f2f2f2;
+    background-color: var(--grey);
     padding: 20px;
     border-radius: 10px;
     margin-top: 4.5rem;
 }
+
 /* End: footer section styling*/
 /* End of this CSS file. */
