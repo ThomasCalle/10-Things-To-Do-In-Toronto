@@ -10,30 +10,47 @@
     <!-- jQuery UI <link> tag -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- Tailwind CSS <link> tag-->
-    <!-- <link href=“https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css” rel=“stylesheet” /> -->
-
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css" rel="stylesheet" />
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="./assets/css/style.css">
+
+
+    <!-- On page load or when changing themes, best to add inline in hea` to avoid FOUC-flash of unstyle content  -->
+    <script>
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
 </head>
-    <header><h1 class="hero"> 10 Things To Do In Toronto </h1>
-    </header>
+
+
+
 <body>
+
+    
+<header>
+    <h1 class="hero"> 10 Things To Do In Toronto </h1>
+</header>
+
     <div class="container-avatar">
         <div class="avatar">
-                Hi
+            Hi
             <div class="avatar-inner">
-                <!-- USE JUST ENCASE -->
+                <!-- USE JUST INCASE -->
             </div>
         </div>
     </div>
 
-<body>
 
-    <!--  Header & Sticky Navigation bar created with Tailwind CSS-->
- 
+
+    <!--  Header, Sticky Navigation bar & light/dark toggle created with Tailwind CSS-->
+
     <header id="headerTO" class="header sticky top-0 bg-white shadow-md flex items-center justify-between px-8 py-02">
         <!-- logo to be added-->
         <h1 class="w-1/4" class="avatar"> </h1>
@@ -41,6 +58,21 @@
         <!-- navigation -->
         <nav class="nav font-semibold text-lg">
             <menu class="flex items-center list-none">
+                <li>
+                    <button id="theme-toggle" type="button"
+                        class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                                fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </li>
                 <li
                     class="p-4 border-b-2 border-orange-500 border-opacity-0 hover:border-opacity-100 hover:text-orange-500 duration-200 cursor-pointer active">
                     <a href="#event-list">Event List</a>
@@ -59,49 +91,56 @@
 
 
 
-    <main class="container">
-        <section class="row justify-center" id>
-            <!-- Section for List of Events, details being pulled from SeatGeek API -->
-            <article id="event-list" class="container center" class="card-column">
-                <h4>List of Events</h4>
-                <div id="event-buttons"></div>
+    <main id="light" class="bg-white dark:bg-gray-800">
 
-            </article>
+        <section id="dark" class="text-gray-600 dark:text-gray-300">
 
-            <!-- Section for Search History of Past Events  -->
-            <article id="search-history" class="container center">
-                <h4>Search History</h4>
-                <div id="search-buttons"></div>
+            <section class="row justify-center" id>
+                <!-- Section for List of Events, details being pulled from SeatGeek API -->
+                <article id="event-list" class="container center" class="card-column">
+                    <h4>List of Events</h4>
+                    <div id="event-buttons"></div>
 
-            </article>
-        </section>
-        <!-- Section that contains both the event details & map -->
-        <section id="selected-event" class="container center">
-            <!-- Div of the details of the event> -->
+                </article>
 
-                    <!-- Unordered list containing the pertinant event details for the user-->
-                    <!-- <ul>
+                <!-- Section for Search History of Past Events  -->
+                <article id="search-history" class="container center">
+                    <h4>Search History</h4>
+                    <div id="search-buttons"></div>
+
+                </article>
+            </section>
+
+
+            <!-- Section that contains both the event details & map -->
+            <section id="selected-event" class="container center">
+                <!-- Div of the details of the event> -->
+
+                <!-- Unordered list containing the pertinant event details for the user-->
+                <!-- <ul>
                         <li id="event-category"></li>
                         <li id="event-title"><a href="/"></a></li>
                         <li id="event-date-time"></li>
                         <li id="performer"></li>
                         <li id="venue-name"></li>
                         <li id="venue-address"></li>
-                    </ul>
-                </div>
-            </div> -->
+                        </ul>
+                    </div>
+                    </div> -->
 
-            <!--Div of the event-map, info being pulled from OpenStreetMap API-->
-            <!-- <figure class="textbox code-card" id="event-map">
-                <h4 class="textbox-header">Event Map</h4>
-                <aside class="textbox-body">
+                <!--Div of the event-map, info being pulled from OpenStreetMap API-->
+                <!-- <figure class="textbox code-card" id="event-map">
+                    <h4 class="textbox-header">Event Map</h4>
+                    <aside class="textbox-body">
                     <p>Location.</p>
-                </aside>
-                <pre class="textbox-body">
+                    </aside>
+                     <pre class="textbox-body">
                     <iframe id="embeddedMap" width="425" height="350" frameborder="0" scrolling="no" marginheight="0"
                     marginwidth="0" style="border: 1px solid black"></iframe>
-                </pre>
-            </figure> -->
+                    </pre>
+                    </figure> -->
+            </section>
+
         </section>
 
     </main>
@@ -119,18 +158,20 @@
     <!--Our javascript tag-->
     <script src="./assets/js/script.js"></script>
 
-</body>
 
-<!--Footer section-->
-<footer>
-    <section class="footer" id="footer">
-        <section class="form-footer">
-            <h5>Created by Thomas Calle, Shohei Mochizuki & Rebecca Lawrence</h5>
-            <p>
-            <h6>&copy; 2023 Team 7even. Confidential and Proprietary. All Rights Reserved.</h6>
-            </p>
+
+    <!--Footer section-->
+    <footer>
+        <section class="footer" id="footer">
+            <section class="form-footer">
+                <h5>Created by Thomas Calle, Shohei Mochizuki & Rebecca Lawrence</h5>
+                <p>
+                <h6>&copy; 2023 Team 7even. Confidential and Proprietary. All Rights Reserved.</h6>
+                </p>
+            </section>
         </section>
-    </section>
-</footer>
+    </footer>
+
+</body>
 
 </html>
