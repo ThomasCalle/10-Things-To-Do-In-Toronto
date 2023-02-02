@@ -205,7 +205,7 @@ function fetchMap(event){
   document.getElementById("mapSection").appendChild(mapFrame);
   mapFrame.setAttribute("id", "mapFrame");
   let mapAttributeKeys = ["width", "height", "frameborder", "scrolling", "marginheight", "marginwidth", "style", "class"];
-  let mapAttributeValues = [425, 425, 0, "no", 0, 0, "border: 1px solid black", "container center"];
+  let mapAttributeValues = [425, 425, 0, "no", 0, 0, "border: 0px solid black", "container center"];
   for (d = 0; d < 8; d++){
     mapFrame.setAttribute(mapAttributeKeys[d], mapAttributeValues[d]);
   }
