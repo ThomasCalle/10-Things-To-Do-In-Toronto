@@ -6,6 +6,7 @@
     --darkGrey: #33393f;
     --teal: #99CCCC;
     --darkTeal: #cce6e6;
+    --white: white;
 }
 
 
@@ -71,23 +72,24 @@ Body {
     flex-direction: column;
     min-height: 100vh;
     justify-content: center;
-    background: linear-gradient(180deg, rgb(237, 171, 27, .400),rgb(222, 149, 24, .400), rgb(184, 101, 12, .400), rgb(140, 67, 7, .400));
+    /* background: linear-gradient(180deg, rgb(237, 171, 27, .400),rgb(222, 149, 24, .400), rgb(184, 101, 12, .400), rgb(140, 67, 7, .400)); */
     /* background: linear-gradient(180deg, rgb(1, 8, 30, 0.900),rgba(7, 13, 49, 0.900), rgba(13, 19, 68, 0.800), rgb(19, 24, 86, 0.700), rgb(24, 29, 105, 0.600));  */
 }
 
-/* #light {
+.light {
     background: linear-gradient(180deg, rgb(237, 171, 27, .400),rgb(222, 149, 24, .400), rgb(184, 101, 12, .400), rgb(140, 67, 7, .400));
 }
 
-#dark {
+.dark {
     background: linear-gradient(180deg, rgb(1, 8, 30, 0.900),rgba(7, 13, 49, 0.900), rgba(13, 19, 68, 0.800), rgb(19, 24, 86, 0.700), rgb(24, 29, 105, 0.600)); 
-} */
+}
 
 /* Backdrop Image: of deployed webpage header */
 .hero {
-    height: 200px;
+    height: 100px;
     width: 100%;
-    margin-bottom: 25px;
+    padding-top: 15px;
+    margin-bottom: 15px;
     /* background-image: url(); */
     background-size: cover;
     background-position: center;
@@ -130,7 +132,7 @@ h4,
 h5,
 h6 {
     margin-bottom: 0.625rem;
-    color: var(--tan);
+    color: var(--white);
     font-weight: 700;
     line-height: 1.1;
     text-align: center;
@@ -142,7 +144,7 @@ h1 {
 }
 
 h2 {
-    font-size: 30px;
+    font-size: 38px;
 }
 
 h3 {
@@ -158,7 +160,7 @@ h5 {
 }
 
 h6 {
-    font-size: 15px;
+    font-size: 10px;
 }
 
 
@@ -259,7 +261,7 @@ h6 {
 .event-btn {
     color: var(--darkGrey);
     margin: .5rem;
-    padding: 2px;
+    padding: 8px;
     font-size: 1rem;
     border-radius: 45px;
     border: 2px solid var(--tan);

@@ -158,7 +158,7 @@ function clearDetails(){
 function showDetails(event){
   event.preventDefault();
   let detailSection = document.createElement("div"); // Create <div> element at the top
-  let detailH4 = document.createElement("h4"); // Create <h4> element below
+  let detailH4 = document.createElement("h2"); // Create <h4> element below
   let detailList = document.createElement("div"); // Create <div> element to store <ul> element
   let detailUl = document.createElement("ul"); // Create <ul> element to store <li> elements
   selectedEventSection.appendChild(detailSection);
