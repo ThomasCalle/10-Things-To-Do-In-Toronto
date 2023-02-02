@@ -199,7 +199,7 @@ function fetchMap(event){
   let mapSection = document.createElement("div"); // Create a map <div> section
   selectedEventSection.appendChild(mapSection);
   mapSection.setAttribute("id", "mapSection");
-  mapSection.setAttribute("class", "container center");
+  mapSection.setAttribute("class", "map-container center");
   let mapFrame = document.createElement("iframe"); // Create a map frame <iframe>
   document.getElementById("mapSection").appendChild(mapFrame);
   mapFrame.setAttribute("id", "mapFrame");
