@@ -138,9 +138,9 @@ h6 {
     text-align: center;
 }
 h1 {
-    font-size: 78px;
+    font-size: 80px;
     color: white;
-    font-weight: 280;
+    font-weight: 380;
 }
 h2 {
     font-size: 38px;
@@ -273,28 +273,7 @@ h6 {
     transform: translateY(-7px);
 
 }
-/* Responsive Design */
-@media screen and (min-width: 768px) {
 
-    .textbox-column {
-        flex: 0 0 50%;
-    }
-}
-/* Responsive Design */
-@media screen and (min-width: 1000px) {
-    .textbox-column {
-        flex: 0 0 33%;
-    }
-}
-
-/* Responsive: LIGHT/DARK Mode */
-/* FunFact OLED Displays  */
- @media (prefers-color-scheme: dark) {
-    body {
-        background-color: #212b31;
-        color: white;
-    }
-}
 
 .footer {
     background-color: var(--grey);
@@ -303,16 +282,6 @@ h6 {
     margin-top: 4.5rem;
 }
 
-/* End: footer section styling*/
-/* End of this CSS file. */
-
-
-
-
-
-
-
-/* COLOR MODE */
 /* COLOR MODE */
 
 :root {
@@ -442,3 +411,17 @@ h6 {
     --clr-heading: hsl(209 50% 80%);
   }
   
+  /* Responsive Design */
+@media screen and (min-width: 768px) {
+
+    .textbox-column {
+        flex: 0 0 50%;
+    }
+}
+/* Responsive Design */
+@media screen and (min-width: 1000px) {
+    .textbox-column {
+        flex: 0 0 33%;
+    }
+}
+
