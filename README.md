@@ -6,6 +6,13 @@ Team: 7even's Interactive Front-End Project
 
 Greetings! the Interactive Front-End Project showecases group memebers: Rebecca Lawrence, Shohei Mochizuki & Thomas Calle's collaborative skills and talents to potential user audiences and employers. Employers want to see what you can do, so that's exactly what we'll give'um!
 
+USER Story: 
+- AS A bootcamp student
+- I WANT a fun weekend to reduce my stress
+- SO THAT I can focus on next week’s activities!
+
+Our team will showcases (10) local evenets over a weekend of Friday, Saturday and Sunday within the city of Toronto, Ontario, Canada. Front-End applicatin architecture has been designed to meet the needs of the general public; aiming for a polished minimal layout, with responsive design for all ages, and providing accesabile visual impairment aid providing; bright soft tones, high contrast for colour blindnes and dark mode. Our optimization creates ease among the user experience(UX) when sourcing time, dates and location of local weekend events.
+
 ## Table of contents
 
 - [Overview](#overview)
@@ -24,10 +31,10 @@ Greetings! the Interactive Front-End Project showecases group memebers: Rebecca 
 
 ### The Challenge
 
-Create an Interactive Front-End Project from scratch - showcases (10) local evenets throughout a weekend with the geographic location of: Toronto, Ontario, Canada. Accesabilioty features have been optmozied for those visiually impared, providing; bright soft tones, high contrast for colour blindnes and dark mode feture to go easier on the eyes. The layout will incorporate minimal, yet organized and sufficent data making it clear and cut to those regardless of the nature of their work and experience time line. In this case Thomas Calle(me) is a aspiring Full Stack Developer, the goal is to develope a portfolio web page to the highest degree for employers and recruiters.
+Create an Interactive Front-End Project from scratch - showcases (10) local evenets throughout a weekend with the geographic location of: Toronto, Ontario, Canada. Accesabilioty features have been optmozied for those visiually impared, providing; bright soft tones, high contrast for colour blindnes and dark mode feture to go easier on the eyes. The layout will incorporate minimal, yet organized and sufficent data making it clear and cut to those regardless of the nature of their work and experience time line.
 
 
-### Screenshot:
+### Screenshot
 
 ![](./assets/images/screencapture-thomascalle-github-io-10-Things-To-Do-In-Toronto-2023-02-03-11_28_11.png)
 
@@ -52,11 +59,11 @@ Initialized and configured a GitHub Repository with GitHub Project integration t
 - Polished and Clean Wireframing
 - Mobile & Desktop 'ready display'
 - Minimum Viable Product (MVP)
-- Images: Sourced Locally (resources below)
+- [Screenshot](#screenshot)
 
 ### What We Learned
 
-Our team has learned the necessity to create responsive web development, with accessible User Interface(UI) & Experience(UX) for the (visually impaired). Implementing the use of Service-Side API's to compliment the use of data presented among a HTML & CSS dynamic through framework and style. Thus, creating easy access to the overall user experience with the versatile desktop and mobile application use.
+Our team has learned the necessity to create responsive web development, with accessible User Interface(UI) & Experience(UX) for the visually impaired (Color Modes). Implementing the use of Service-Side API's to compliment the use of data presented among a HTML & CSS dynamic through framework and style. Thus, creating easy access to the overall user experience with versatile desktop and mobile application use.
 
 Grasping the importance of professional formated HTML, CSS & JavaScript architecture has taught us the necessity to provide minimal, coherent and organized documentation. The project helped us to adapt to real world demands providing adequate resources, tracked progression logs, source revision and overall team flow through the following methodologies:
 
@@ -80,14 +87,14 @@ Grasping the importance of professional formated HTML, CSS & JavaScript architec
 
 ## Continued Development
 
-Throughout our great journey, our team has created the need to become professional Full Stack Developers. We'll continue to build upon our concrete foundation, innovation, intuitiveness and obsessions - advancing ourselves in the pursuit of recently developed projects.
+Throughout our great journey, our team has created the need to become professional Full Stack Developers. We'll continue to build upon our concrete foundation, innovation, intuitiveness and obsessions - advancing ourselves in the pursuit of recently developed projects. Grasping the importance of professional team work and flow brought out the best in creative thinking - presented below, you'll find key features of our continued development:
 
-Grasping the importance of professional team work flow, brought out the best 
-Future development of the project along with other key fetures would be 
-- Add a function of selecting multiple weekends
-- Add a function of selecting a different city other than Toronto
+Continued Front-End Project features include:
+- Add a function of selecting multiple weekends, with multiple new cities
 - Add a function of selecting an event category
 - Add a function of showing directions in the map section
+- Add a (UI) indicating the color blindess descriptive purpose
+- Add a (UI) of newly deployed accessibile features; cognitive, speech & language, auditory and physical needs.
 
 ## Authors
 
@@ -95,8 +102,14 @@ Future development of the project along with other key fetures would be
 - JavaScript Lead:[ Shohei Mochizuki](https://github.com/shohei-mochizuki)
 - HTML & CSS Design Lead:[ Rebecca Lawrence](https://github.com/rkml14)
 
+## Contributions
+
+- [ Thomas Calle](https://github.com/ThomasCalle): HTML & CSS foundation, UX & UI, Accessibility.
+- [ Shohei Mochizuki](https://github.com/shohei-mochizuki): Overall JavaScript, WEB API's, Responsive Data.
+- [ Rebecca Lawrence](https://github.com/rkml14): HTML & CSS design, CSS FrameWork, Responsive Design.
+
 ## Acknowledgements
-Thank you for viewing 10-Things-To-Do-in-Toronto. Over the past week, our team has shared some of our most memorable experiences togehter. It's been one heck of a ride! and we couldn't have done it without you! As we continue developing forward with our goals of becoming Full Stack Developer's nearring closer, our team remains inspired by you, our passionate community. 
+Thank you for viewing 10-Things-To-Do-in-Toronto. Over the past week, our team has shared some of our most memorable experiences togehter. It's been one heck of a ride! and we couldn't have done it without you! As we continue developing forward with our goals of becoming Full Stack Developer's nearing closer, our team remains inspired by you, our passionate community. 
 
 We'll see you on the other side!
 
