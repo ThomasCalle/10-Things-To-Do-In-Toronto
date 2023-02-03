@@ -257,5 +257,19 @@ themeToggleBtn.addEventListener('click', function() {
     
 });
 
+ // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+function onPageLoad (){    
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+} else {
+    document.documentElement.classList.remove('dark')
+}
+   }
+
+
+
+
+
+
 init(); // This code will be executed when the page is loaded
 
